@@ -69,14 +69,15 @@ this is ESP32 Task
 ### Diagrama de flujo
 ```mermaid
 graph TD;
-    A(Inicio) --> B[Serial.begin(112500)];
-    B --> C[Crear otra tarea];
-    C --> D[Imprimir 'this is another Task'];
-    D --> E[Delay de 1000ms];
+    A(Inicio) --> B["Serial.begin(112500)"];
+    B --> C["Crear otra tarea"];
+    C --> D["Imprimir 'this is another Task'"];
+    D --> E["Delay de 1000ms"];
     E --> D;
-    A --> F[Imprimir 'this is ESP32 Task'];
-    F --> G[Delay de 1000ms];
+    A --> F["Imprimir 'this is ESP32 Task'"];
+    F --> G["Delay de 1000ms"];
     G --> F;
+
 ```
 
 ---
