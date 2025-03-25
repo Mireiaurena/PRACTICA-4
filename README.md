@@ -301,6 +301,15 @@ Interactividad: Los botones permiten cambiar el modo y ajustar la hora, sin afec
 
 En resumen, el código implementa un reloj digital eficiente utilizando FreeRTOS, con la capacidad de ajustarse de manera interactiva a través de botones y mantener un flujo de trabajo continuo y sin interrupciones.
 
+La salida que se ve en la pantalla es:
+```
+Hora: 12:34:56  | Modo: 0
+Hora: 12:34:57  | Modo: 0
+Hora: 12:34:58  | Modo: 0
+...
+
+```
+
 
 
 
