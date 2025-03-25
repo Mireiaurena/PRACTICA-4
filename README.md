@@ -285,18 +285,27 @@ void loop() {
 Este código implementa un reloj digital en un ESP32 utilizando FreeRTOS. El sistema permite visualizar la hora, cambiar de modo y ajustar la hora y los minutos manualmente mediante botones. A continuación se describe cómo funciona cada parte del código:
 
 Componentes principales:
+
 1. Colas y Mutex:
+
 Se emplean colas para manejar los eventos generados por los botones.
+
 Un mutex se utiliza para proteger las variables compartidas y evitar conflictos entre tareas.
 
 2.Tareas principales:
+
 Tarea de actualización del reloj: Esta tarea avanza el reloj cada segundo, actualizando los valores de los segundos, minutos y horas según corresponda.
+
 Tarea de botones: Se encarga de gestionar los eventos de los botones. Un botón permite cambiar entre los modos (reloj, ajuste de horas, ajuste de minutos), mientras que el otro incrementa el valor de la hora o los minutos, dependiendo del modo seleccionado.
+
 Tarea de puerto serie: Muestra la hora actual en el puerto serie únicamente cuando hay cambios en la hora.
+
 Tarea de LEDs: Controla los LEDs, encendiendo uno cada segundo y otro cuando el reloj está en modo de ajuste.
 
 Características del sistema:
+
 Multitarea: Gracias a FreeRTOS, el sistema puede ejecutar las tareas en paralelo, permitiendo que el reloj se actualice mientras los botones y la visualización funcionan de manera simultánea.
+
 Interactividad: Los botones permiten cambiar el modo y ajustar la hora, sin afectar el funcionamiento del reloj ni la visualización de la hora.
 
 En resumen, el código implementa un reloj digital eficiente utilizando FreeRTOS, con la capacidad de ajustarse de manera interactiva a través de botones y mantener un flujo de trabajo continuo y sin interrupciones.
@@ -464,11 +473,13 @@ Componentes principales:
 1.Servidor Web:
 
 El ESP32 actúa como un punto de acceso llamado ESP32_Game, permitiendo al usuario iniciar o detener el juego, así como ajustar la dificultad.
+
 El servidor maneja las solicitudes web relacionadas con el juego y permite la interacción a través de un navegador.
 
 2.Tareas en paralelo:
 
 Tarea de LEDs: Una tarea se encarga de encender aleatoriamente un LED. El jugador debe presionar el botón correspondiente al LED encendido para ganar puntos. Si presiona el botón correcto, suma puntos; si se equivoca, los pierde.
+
 Tarea de temporizador: Otra tarea gestiona el tiempo restante, finalizando el juego cuando el temporizador llega a cero.
 
 3.Colas e interrupciones:
@@ -486,7 +497,14 @@ Interactividad en tiempo real: El sistema responde a las interacciones del jugad
 
 En resumen, el código crea una experiencia de juego reactiva y fluida, utilizando WiFi para la interacción remota y FreeRTOS para gestionar las tareas en paralelo de manera eficiente.
 
+Y la salida en este caso es:
+```
+Dirección IP: 192.168.4.1
+Juego iniciado
+Puntuación: 5
+Tiempo restante: 20
 
+```
 
 
 
