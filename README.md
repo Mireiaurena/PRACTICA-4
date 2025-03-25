@@ -460,21 +460,27 @@ Hora: 12:34:58  | Modo: 0
 ```
 Este código implementa un juego de reacción utilizando un ESP32 con WiFi y FreeRTOS. A continuación, se describe cómo está estructurado y cómo funciona el sistema:
 Componentes principales:
+
 1.Servidor Web:
+
 El ESP32 actúa como un punto de acceso llamado ESP32_Game, permitiendo al usuario iniciar o detener el juego, así como ajustar la dificultad.
 El servidor maneja las solicitudes web relacionadas con el juego y permite la interacción a través de un navegador.
 
 2.Tareas en paralelo:
+
 Tarea de LEDs: Una tarea se encarga de encender aleatoriamente un LED. El jugador debe presionar el botón correspondiente al LED encendido para ganar puntos. Si presiona el botón correcto, suma puntos; si se equivoca, los pierde.
 Tarea de temporizador: Otra tarea gestiona el tiempo restante, finalizando el juego cuando el temporizador llega a cero.
 
 3.Colas e interrupciones:
+
 Se utilizan colas e interrupciones para gestionar los eventos físicos de los botones, lo que permite detectar las pulsaciones en tiempo real sin bloquear otras tareas.
 
 4.Puerto serie:
+
 El puerto serie muestra la IP del servidor y actualiza en tiempo real tanto la puntuación como el tiempo restante durante el juego.
 
 Características del sistema:
+
 WiFi y multitarea: Gracias a FreeRTOS y la conectividad WiFi, el juego puede manejar múltiples tareas en paralelo, lo que garantiza una experiencia fluida y rápida sin bloqueos ni retardos.
 Interactividad en tiempo real: El sistema responde a las interacciones del jugador de manera instantánea, ya sea por medio de los botones o a través del servidor web.
 
